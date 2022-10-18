@@ -9,11 +9,21 @@ import Typography from '../styles/Typography';
 const ContentStyles = styled.div`
   background: white;
   padding: 2rem;
+  @media (max-width: 576px) {
+    padding: 1rem;
+  }
+`;
+
+const Container = styled.div`
+  padding: 0 5vw;
+  @media (max-width: 576px) {
+    padding: 0;
+  }
 `;
 
 export default function Layout({ children }) {
   return (
-    <>
+    <Container>
       <GlobalStyles />
       <Typography />
       <ContentStyles>
@@ -21,6 +31,6 @@ export default function Layout({ children }) {
         {children}
         <Footer />
       </ContentStyles>
-    </>
+    </Container>
   );
 }

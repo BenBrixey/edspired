@@ -29,6 +29,7 @@ function SingleClub({ club }) {
   const image = getImage(club.image.asset);
   const date = moment(club.launchAt).format('dddd, MMMM Do YYYY, h:mm:ss a');
   const clubPrice = club.price;
+  console.log(date);
   return (
     <ClubStyles>
       <Link to={`/club/${club.slug.current}`}>

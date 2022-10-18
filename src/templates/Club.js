@@ -1,12 +1,11 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
+import moment from 'moment';
 
-const ClubGrid = styled.div`
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+const ClubWrapper = styled.div`
+  display: flex;
 `;
 
 const BookingNavItem = styled(Link)`
@@ -16,6 +15,7 @@ const BookingNavItem = styled(Link)`
   display: inline-block;
   white-space: nowrap;
   margin: 0 1vw;
+  margin-bottom: 14rem;
   transition: all 200ms ease-in;
   position: relative;
 
@@ -33,31 +33,70 @@ const BookingNavItem = styled(Link)`
   background: var(--blue);
 
   border: 1px solid black;
-  padding: 1rem 1rem;
+  padding: 1rem 3rem;
   border-radius: 5px;
   cursor: pointer;
   --cast: 2px;
-  box-shadow: var(--cast) var(--cast) 0 var(--grey);
   text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
 `;
 
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding-top: 20rem;
+  padding-left: 20rem;
+  padding-right: 20rem;
+`;
+
 export default function SingleClubPage({ data: { club } }) {
-  const image = getImage(club.image.asset);
   return (
-    <ClubGrid>
-      <GatsbyImage image={image} alt={club.name} />
-      <div>
-        <h2 className="mark">{club.name}</h2>
-        <BookingNavItem to="/club-booking">Book Now</BookingNavItem>
-      </div>
-    </ClubGrid>
+    <>
+      <ClubWrapper>
+        <ImageWrapper>
+          <StaticImage
+            style={{ position: 'absolute', width: '100%', top: '3rem' }}
+            src="../images/scroll-background.jpg"
+          />
+          <Content>
+            <h2 className="mark">{club.title}</h2>
+            <p>{club.paragraphOne}</p>
+            <p>{club.paragraphTwo}</p>
+            <p>{club.paragraphThree}</p>
+            <p>{club.paragraphFour}</p>
+            <p>{club.paragraphFive}</p>
+            <p>{club.smallPrintOne}</p>
+            <p>{club.smallPrintTwo}</p>
+            <BookingNavItem to="/booking-form">Book Now</BookingNavItem>
+          </Content>
+        </ImageWrapper>
+      </ClubWrapper>
+    </>
   );
 }
 
 export const query = graphql`
   query ($slug: String!) {
     club: sanityClub(slug: { current: { eq: $slug } }) {
+      launchAt
+      paragraphOne
+      paragraphTwo
+      paragraphThree
+      paragraphFour
+      paragraphFive
+      smallPrintOne
+      smallPrintTwo
+      title
       name
       id
       image {

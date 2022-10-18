@@ -27,12 +27,12 @@ const DnDBackgroundSection = ({ className }) => {
     <BackgroundImage Tag="section" className={className} fluid={imageData}>
       <LogoWrapper>
         <Link to="/">
-          <StaticImage src="../images/circle-logo.png" alt="edspired logo" />
+          <StaticImage src="../../images/circle-logo.png" alt="edspired logo" />
         </Link>
       </LogoWrapper>
 
       <ImageWrapper>
-        <StaticImage src="../images/DnDHeader.png" alt="DnD Header" />
+        <StaticImage src="../../images/DnDHeader.png" alt="DnD Header" />
       </ImageWrapper>
     </BackgroundImage>
   );

@@ -1,0 +1,11 @@
+type Candidate @model @auth(rules: [{ allow: public, operations: [create] }]) {
+  id: ID!
+  date: AWSDate!
+  name: String!
+  age: Int!
+  medical: String!
+  telephone: String!
+  email: AWSEmail!
+  photoConsent: String!
+  foodConsent: String!
+}

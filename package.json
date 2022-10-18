@@ -25,6 +25,12 @@
     }
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^3.2.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.0",
+    "aws-amplify": "^4.3.27",
+    "bootstrap": "^5.2.1",
     "gatsby": "^4.16.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-image": "^2.17.0",
@@ -32,13 +38,16 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^4.17.0",
     "gatsby-source-sanity": "^7.4.2",
+    "gatsby-source-stripe": "^4.0.0",
     "gatsby-transformer-sharp": "^4.17.0",
     "isomorphic-fetch": "^3.0.0",
     "moment": "^2.29.3",
     "normalize.css": "^8.0.1",
     "react": "^18.1.0",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.4.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
